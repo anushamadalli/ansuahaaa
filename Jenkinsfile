@@ -11,8 +11,8 @@ pipeline {
                 script{
                     def containerExists = sh(script: "docker ps -q -f name=anusha", returnStdout: true).trim()
                     if (containerExists) {
-                    sh "docker stop anusha"
-                    sh "docker rm anusha"
+                    sh 'docker stop anusha'
+                    sh 'docker rm anusha'
                     }
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
         }
         stage('Run a container'){
             steps{
-                sh 'docker run -it -d --name chandu -p 8081:8080 anushamadalli/app'
+                sh 'docker run -it -d --name anusha -p 8081:8080 anushamadalli/app'
             }
         }
     }
